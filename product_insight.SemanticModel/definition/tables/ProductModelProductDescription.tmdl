@@ -1,0 +1,66 @@
+table ProductModelProductDescription
+	lineageTag: 4d369a69-5994-40f4-88a1-252ecbe6a724
+	sourceLineageTag: [SalesLT].[ProductModelProductDescription]
+
+	column ProductModelID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 883a7855-ea16-4102-a152-8944e8d2d497
+		sourceLineageTag: ProductModelID
+		summarizeBy: count
+		sourceColumn: ProductModelID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductDescriptionID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 652a9a1c-b6eb-4909-b514-04a3087ec2ed
+		sourceLineageTag: ProductDescriptionID
+		summarizeBy: count
+		sourceColumn: ProductDescriptionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Culture
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fa6d56df-9b1b-458a-b9ed-c450b773d2cc
+		sourceLineageTag: Culture
+		summarizeBy: none
+		sourceColumn: Culture
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 28c4e056-c4d1-48b7-8f2a-919bfb67b625
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b80169a3-f772-4c00-8894-b6663a2e6d44
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductModelProductDescription = entity
+		mode: directLake
+		source
+			entityName: ProductModelProductDescription
+			schemaName: SalesLT
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

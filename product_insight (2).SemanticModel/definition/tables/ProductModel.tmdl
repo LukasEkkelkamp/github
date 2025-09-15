@@ -1,0 +1,55 @@
+table ProductModel
+	lineageTag: c82fa873-0cfa-45db-80ea-debae9ea5598
+	sourceLineageTag: [SalesLT].[ProductModel]
+
+	column ProductModelID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 24ba72ff-f2e5-44a2-9fbb-0315e7a6a76e
+		sourceLineageTag: ProductModelID
+		summarizeBy: count
+		sourceColumn: ProductModelID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8ae696c0-53a9-4c9c-b05e-9ddd9e55011b
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c8b6d09a-5dbf-4fb8-b66d-b1ccbc178319
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ddeb7f42-f03e-4ca1-85c7-c5b303fa6f72
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductModel = entity
+		mode: directLake
+		source
+			entityName: ProductModel
+			schemaName: SalesLT
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

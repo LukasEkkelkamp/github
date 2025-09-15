@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Sentiment by Product"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bd314694-93e1-bdf8-460f-43efb8dbf2f8"
+  }
+}

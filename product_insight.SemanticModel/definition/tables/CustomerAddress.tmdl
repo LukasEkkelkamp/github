@@ -1,0 +1,66 @@
+table CustomerAddress
+	lineageTag: 1e9d9136-31e5-4147-955e-419af3de4dbd
+	sourceLineageTag: [SalesLT].[CustomerAddress]
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cdc8ee9e-d06d-4e3d-9df1-0c6bae40cedd
+		sourceLineageTag: CustomerID
+		summarizeBy: count
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a090e138-9aba-4d34-a767-90a5a33e4569
+		sourceLineageTag: AddressID
+		summarizeBy: count
+		sourceColumn: AddressID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e499aa5f-10ca-4225-a001-bee298ae1611
+		sourceLineageTag: AddressType
+		summarizeBy: none
+		sourceColumn: AddressType
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0c3645fa-fd09-4ebb-962d-4d4e8e2995f1
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a5d40b49-a7a9-46e9-ae7d-adace660813c
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CustomerAddress = entity
+		mode: directLake
+		source
+			entityName: CustomerAddress
+			schemaName: SalesLT
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

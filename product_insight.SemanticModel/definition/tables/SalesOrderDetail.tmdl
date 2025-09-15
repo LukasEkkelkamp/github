@@ -1,0 +1,102 @@
+table SalesOrderDetail
+	lineageTag: aaff000b-fdc3-47ea-8d7a-24487e963de0
+	sourceLineageTag: [SalesLT].[SalesOrderDetail]
+
+	column SalesOrderID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 08941398-361a-498e-9923-152825fefaf2
+		sourceLineageTag: SalesOrderID
+		summarizeBy: count
+		sourceColumn: SalesOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderDetailID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 906bd539-545f-4b8b-921e-3ab650f1dce9
+		sourceLineageTag: SalesOrderDetailID
+		summarizeBy: count
+		sourceColumn: SalesOrderDetailID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQty
+		dataType: int64
+		formatString: 0
+		sourceProviderType: smallint
+		lineageTag: ad69e102-6682-4c7c-83d1-a100b96397e2
+		sourceLineageTag: OrderQty
+		summarizeBy: sum
+		sourceColumn: OrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 86abe51f-e2a4-4e3f-9ddf-6d06ce1d45bc
+		sourceLineageTag: ProductID
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: 8967abcb-79f2-4ffa-b4bb-cd97fdedefe9
+		sourceLineageTag: UnitPrice
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitPriceDiscount
+		dataType: double
+		sourceProviderType: decimal(19, 4)
+		lineageTag: bfc0d2b9-18d6-4130-b00d-a4f8c11aa8f0
+		sourceLineageTag: UnitPriceDiscount
+		summarizeBy: sum
+		sourceColumn: UnitPriceDiscount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rowguid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 60b85626-8fdf-4441-8aea-8a8d3bb67ae7
+		sourceLineageTag: rowguid
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6410f924-d5e7-407d-b357-cffe10f66c61
+		sourceLineageTag: ModifiedDate
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesOrderDetail = entity
+		mode: directLake
+		source
+			entityName: SalesOrderDetail
+			schemaName: SalesLT
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

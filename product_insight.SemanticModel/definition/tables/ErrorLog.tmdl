@@ -1,0 +1,109 @@
+table ErrorLog
+	lineageTag: a028267f-b63b-4b59-a5cb-b543a56075b2
+	sourceLineageTag: [dbo].[ErrorLog]
+
+	column ErrorLogID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9dcc0f81-c13e-4269-bafc-408395a591f6
+		sourceLineageTag: ErrorLogID
+		summarizeBy: count
+		sourceColumn: ErrorLogID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorTime
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: bd1db39e-09f4-4c56-95a9-7e4e8cd14f58
+		sourceLineageTag: ErrorTime
+		summarizeBy: none
+		sourceColumn: ErrorTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1778b04a-649a-471a-8a46-2375ac801568
+		sourceLineageTag: UserName
+		summarizeBy: none
+		sourceColumn: UserName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorNumber
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 80e5fb3f-2782-46fc-83e0-e33818eea57e
+		sourceLineageTag: ErrorNumber
+		summarizeBy: sum
+		sourceColumn: ErrorNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorSeverity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3ed0ee67-f5aa-4679-8566-c6c40f97b862
+		sourceLineageTag: ErrorSeverity
+		summarizeBy: sum
+		sourceColumn: ErrorSeverity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorState
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0bcca5a6-4cca-4287-ab58-a2f6a663acf7
+		sourceLineageTag: ErrorState
+		summarizeBy: sum
+		sourceColumn: ErrorState
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorProcedure
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0e00f611-feeb-43ab-a069-56cce4ae4ffa
+		sourceLineageTag: ErrorProcedure
+		summarizeBy: none
+		sourceColumn: ErrorProcedure
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorLine
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: da2ecc95-2c51-4932-bf54-65c477180d63
+		sourceLineageTag: ErrorLine
+		summarizeBy: sum
+		sourceColumn: ErrorLine
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorMessage
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a5cc162b-d080-47ab-ae81-f3b17cce6f14
+		sourceLineageTag: ErrorMessage
+		summarizeBy: none
+		sourceColumn: ErrorMessage
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ErrorLog = entity
+		mode: directLake
+		source
+			entityName: ErrorLog
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
